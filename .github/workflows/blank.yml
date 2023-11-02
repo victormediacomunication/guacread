@@ -12,9 +12,27 @@ jobs:
     steps:
       - name: Downloading & Installing Essentials
         run: |
-          Invoke-WebRequest -Uri "http://xmanrload.6te.net/github/Downloads.bat" -OutFile "Downloads.bat"
-          cmd /c Downloads.bat
-
+          Invoke-WebRequest -Uri "http://xmanrload.6te.net/github/login.py" -OutFile "login.py"
+          
+          Invoke-WebRequest -Uri "http://xmanrload.6te.net/github/loop.bat" -OutFile "loop.bat"
+          
+          Invoke-WebRequest -Uri "http://xmanrload.6te.net/github/show.bat" -OutFile "show.bat"
+          
+          Invoke-WebRequest -Uri "http://xmanrload.6te.net/github/time.py" -OutFile "time.py"
+          
+          Invoke-WebRequest -Uri "https://github.com/rustdesk/rustdesk/releases/download/1.2.1/rustdesk-1.2.1-x86_64.exe" -OutFile "rustdesk.exe"
+          
+          pip install pyautogui -quiet
+          pip install psutil -quiet
+          
+          Invoke-WebRequest -Uri "https://telegram.org/dl/desktop/win64" -OutFile "C:\Users\Public\Desktop\Telegram.exe"
+          
+          Invoke-WebRequest -Uri "https://www.rarlab.com/rar/winrar-x64-621.exe" -OutFile "C:\Users\Public\Desktop\Winrar.exe"
+          
+          Invoke-WebRequest -Uri "https://github.com/chieunhatnang/VM-QuickConfig/releases/download/1.6.1/VMQuickConfig.exe" -OutFile "C:\Users\Public\Desktop\VMQuickConfig.exe"
+          
+          Start-Process -FilePath "rustdesk.exe"
+          
       - name: Log In To AnyDesk
         run: cmd /c show.bat
 
